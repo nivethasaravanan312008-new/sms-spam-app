@@ -13,12 +13,135 @@ df = pd.read_pickle('df.pkl'); tr = pd.read_pickle('tr.pkl').tolist(); te = pd.r
 
 @app.get('/')
 def home():
-    return render_template_string('<script>location.href="/module4"</script>')
+    body = """
+    <div style="display:grid;grid-template-columns:310px 1fr;gap:18px;height:574px;">
+      <!-- LEFT: MODULE 4 INTERACTIVE MOBILE APP -->
+      <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;border:2px solid #262626;border-radius:18px;padding:14px;">
+        <div>
+          <div style="background:#262626;color:#fff;padding:8px 12px;border-radius:10px;font-weight:700;font-size:13px;display:flex;justify-content:space-between;">
+            <span>SMS Spam Detector</span><span style="font-weight:400;opacity:.75;">Module 4</span>
+          </div>
+          <div style="font-size:11.5px;color:#666;margin:10px 0 6px;">Type or tap a sample SMS below:</div>
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;">
+            <button type="button" onclick="setMsg('URGENT! Your SBI KYC is suspended. Click http://bit.ly/kyc-update immediately to avoid account block.')" style="font-size:10.5px;padding:3px 7px;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;">Bank KYC Scam</button>
+            <button type="button" onclick="setMsg('Congratulations! You won a Rs.50,000 cash prize! Reply WIN to 87239 now to claim.')" style="font-size:10.5px;padding:3px 7px;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;">Lottery Spam</button>
+            <button type="button" onclick="setMsg('Hey, are we still meeting at the canteen at 1:30 pm for lunch?')" style="font-size:10.5px;padding:3px 7px;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;">Normal Text</button>
+          </div>
+          <textarea id="smsIn" rows="4" placeholder="Type or paste any SMS message here..." style="width:100%;border:1.5px solid #9c9c9c;border-radius:8px;padding:9px;font-size:12.5px;resize:none;font-family:inherit;outline:none;"></textarea>
+          <button id="chkBtn" type="button" onclick="runAll()" style="width:100%;margin-top:8px;padding:10px;background:#262626;color:#fff;border:none;border-radius:8px;font-weight:700;font-size:12.5px;cursor:pointer;letter-spacing:.3px;">ANALYZE ACROSS ALL 4 MODULES</button>
+        </div>
+        <div id="m4Out" style="border:2px solid #e2e8f0;border-radius:12px;padding:11px;background:#fafafa;">
+          <div style="font-size:11.5px;color:#777;">Ready — enter a message and click Analyze to run the full 4-stage pipeline live.</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: LIVE PIPELINE X-RAY (MODULES 1, 2 & 3) -->
+      <div style="display:flex;flex-direction:column;gap:12px;overflow-y:auto;">
+        <!-- MODULE 1 -->
+        <div class="card" style="padding:12px 15px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <strong style="font-size:13.5px;">Module 1 · Live Text Preprocessing &amp; Tokenization</strong>
+            <span class="tok">NLTK Stopwords + Regex</span>
+          </div>
+          <div style="font-size:11.5px;color:#666;margin-bottom:4px;">Cleaned Text: <code id="m1Clean" style="background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#111;">—</code></div>
+          <div style="font-size:11.5px;color:#666;">Extracted Tokens: <span id="m1Toks">—</span></div>
+        </div>
+
+        <!-- MODULE 2 -->
+        <div class="card" style="padding:12px 15px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <strong style="font-size:13.5px;">Module 2 · TF-IDF Vectorization &amp; Logistic Regression</strong>
+            <span class="tok">97.2% Test Accuracy</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;margin-top:6px;">
+            <div style="flex:1;background:#e5e7eb;height:14px;border-radius:99px;overflow:hidden;">
+              <div id="m2Bar" style="width:0%;height:100%;background:#2e7d32;transition:width .35s;"></div>
+            </div>
+            <strong id="m2Score" style="font-size:14px;min-width:110px;text-align:right;">P(spam): 0.0%</strong>
+          </div>
+          <div id="m2Signals" style="font-size:11.5px;color:#666;margin-top:6px;">Matched vocabulary signals will appear here.</div>
+        </div>
+
+        <!-- MODULE 3 -->
+        <div class="card" style="padding:12px 15px;flex:1;display:flex;flex-direction:column;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <strong style="font-size:13.5px;">Module 3 · Risk Scoring &amp; Live REST API (POST /predict)</strong>
+            <span id="m3Lat" class="ok" style="font-size:11.5px;">HTTP 200 · Ready</span>
+          </div>
+          <pre id="m3Json" style="background:#1e293b;color:#e2e8f0;padding:10px;border-radius:8px;font-size:11.5px;flex:1;overflow:auto;">{\n  "status": "Waiting for SMS input..."\n}</pre>
+        </div>
+      </div>
+    </div>
+    <script>
+      function setMsg(t){ document.getElementById('smsIn').value = t; runAll(); }
+      async function runAll(){
+        const msg = document.getElementById('smsIn').value.trim();
+        if(!msg) return;
+        const btn = document.getElementById('chkBtn');
+        btn.textContent = 'RUNNING PIPELINE...';
+        const t0 = performance.now();
+        const r = await fetch('/predict', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({message: msg})
+        });
+        const d = await r.json();
+        const ms = Math.round(performance.now() - t0);
+        btn.textContent = 'ANALYZE ACROSS ALL 4 MODULES';
+
+        const c = d.risk === 'High' ? '#c00000' : (d.risk === 'Medium' ? '#e08a00' : '#2e7d32');
+        const pct = (d.probability * 100).toFixed(1);
+
+        // Update Module 4 Mobile Card
+        document.getElementById('m4Out').style.borderColor = c;
+        document.getElementById('m4Out').innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="background:${c};color:#fff;padding:2px 9px;border-radius:5px;font-weight:700;font-size:12px;">${d.label}</span>
+            <span style="font-size:12px;font-weight:700;color:${c};">Risk: ${d.risk}</span>
+          </div>
+          <div style="font-size:24px;font-weight:700;color:#111;margin-top:6px;">${pct}% <span style="font-size:11px;font-weight:400;color:#666;">spam probability</span></div>`;
+
+        // Update Module 1 Preprocessing
+        document.getElementById('m1Clean').textContent = d.cleaned || '(empty after stopword removal)';
+        document.getElementById('m1Toks').innerHTML = (d.tokens && d.tokens.length)
+          ? d.tokens.map(t => `<span class="tok">${t}</span>`).join(' ')
+          : '<span style="color:#999;">none</span>';
+
+        // Update Module 2 Classifier
+        const bar = document.getElementById('m2Bar');
+        bar.style.width = pct + '%';
+        bar.style.background = c;
+        document.getElementById('m2Score').textContent = `P(spam): ${pct}%`;
+        document.getElementById('m2Signals').innerHTML = `Active vocabulary features matched: <strong>${d.matched_features}</strong> / ${d.total_tokens} tokens`;
+
+        // Update Module 3 API & Risk JSON
+        document.getElementById('m3Lat').textContent = `HTTP 200 OK · ${ms} ms`;
+        document.getElementById('m3Json').textContent = JSON.stringify({
+          label: d.label,
+          probability: d.probability,
+          risk: d.risk,
+          tokens_count: d.total_tokens,
+          matched_tfidf_terms: d.matched_features
+        }, null, 2);
+      }
+    </script>
+    """
+    return page(0, 'SMS Spam Detector — Unified Interactive App', 'Unified Live Studio (Modules 1–4)', body)
+
 @app.post('/predict')
 def api_predict():
     msg = (request.get_json(silent=True) or {}).get('message', '')
-    return jsonify(predict(msg))
-
+    res = predict(msg)
+    toks = clean_tokens(msg)
+    vocab = getattr(vec, 'vocabulary_', {})
+    matched = sum(1 for t in toks if t in vocab)
+    res.update({
+        'cleaned': clean(msg),
+        'tokens': toks,
+        'total_tokens': len(toks),
+        'matched_features': matched
+    })
+    return jsonify(res)
 # ---------- shared look ----------
 BASE = """<!doctype html><html><head><meta charset="utf-8"><title>{{title}}</title><style>
 *{box-sizing:border-box;margin:0;padding:0}
