@@ -1,0 +1,14 @@
+[
+ {
+  "text": "Reply to win \u00a3100 weekly! What professional sport does Tiger Woods play? Send STOP to 87239 to end service",
+  "label": "spam"
+ },
+ {
+  "text": "YES! The only place in town to meet exciting adult singles is now in the UK. Txt CHAT to 86688 now! 150p/Msg.",
+  "label": "spam"
+ },
+ {
+  "text": "Think you sent the text to the home phone. That cant display texts. If you still want to send it his number is",
+  "label": "ham"
+ }
+]

@@ -1,0 +1,472 @@
+{
+ "summary": {
+  "n": 50,
+  "ok": 50,
+  "correct": 47,
+  "mean_ms": 2.262331979997043,
+  "max_ms": 2.767279000011058,
+  "median_ms": 2.278392499988513
+ },
+ "demo": {
+  "text": "Reply to win \u00a3100 weekly! What professional sport does Tiger Woods play? Send STOP to 87239 to end service",
+  "response": {
+   "label": "SPAM",
+   "probability": 0.7609,
+   "risk": "High"
+  },
+  "status": 200,
+  "ms": 2.3568500000124004
+ },
+ "calls": [
+  {
+   "text": "YES! The only place in town to meet exciting adult singles is now in the UK. Txt CHAT to 86688 now! 150p/Msg.",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.134408000017629,
+   "label": "SPAM",
+   "probability": 0.5647,
+   "risk": "Medium"
+  },
+  {
+   "text": "Shall i ask one thing if you dont mistake me.",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.2957020000262673,
+   "label": "SAFE",
+   "probability": 0.0424,
+   "risk": "Low"
+  },
+  {
+   "text": "Arun can u transfr me d amt",
+   "truth": "ham",
+   "status": 200,
+   "ms": 1.9870699999842145,
+   "label": "SAFE",
+   "probability": 0.0819,
+   "risk": "Low"
+  },
+  {
+   "text": "Just making dinner, you ?",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.156323999997767,
+   "label": "SAFE",
+   "probability": 0.066,
+   "risk": "Low"
+  },
+  {
+   "text": "URGENT! Your mobile No *********** WON a \u00a32,000 Bonus Caller Prize on 02/06/03! This is the 2nd attempt to reach YOU! Call 09066362220 ASAP! BOX97N7QP, 150ppm",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.6028629999927944,
+   "label": "SPAM",
+   "probability": 0.7348,
+   "risk": "High"
+  },
+  {
+   "text": "Uncle G, just checking up on you. Do have a rewarding month",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.1758930000146393,
+   "label": "SAFE",
+   "probability": 0.0785,
+   "risk": "Low"
+  },
+  {
+   "text": "Ok then u tell me wat time u coming later lor.",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.2870160000252326,
+   "label": "SAFE",
+   "probability": 0.0178,
+   "risk": "Low"
+  },
+  {
+   "text": "Our Prasanth ettans mother passed away last night. Just pray for her and family.",
+   "truth": "ham",
+   "status": 200,
+   "ms": 1.960538999981054,
+   "label": "SAFE",
+   "probability": 0.069,
+   "risk": "Low"
+  },
+  {
+   "text": "Yetunde, i'm sorry but moji and i seem too busy to be able to go shopping. Can you just please find some other way to get what you wanted us to get. Please forgive me. You can reply free via yahoo messenger.",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.411359000006996,
+   "label": "SAFE",
+   "probability": 0.193,
+   "risk": "Low"
+  },
+  {
+   "text": "Get 3 Lions England tone, reply lionm 4 mono or lionp 4 poly. 4 more go 2 www.ringtones.co.uk, the original n best. Tones 3GBP network operator rates apply.",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.281559999971705,
+   "label": "SPAM",
+   "probability": 0.6088,
+   "risk": "Medium"
+  },
+  {
+   "text": "FreeMsg: Fancy a flirt? Reply DATE now & join the UKs fastest growing mobile dating service. Msgs rcvd just 25p to optout txt stop to 83021. Reply DATE now!",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.2740979999866795,
+   "label": "SPAM",
+   "probability": 0.8096,
+   "risk": "High"
+  },
+  {
+   "text": "Urgent! Please call 09061743810 from landline. Your ABTA complimentary 4* Tenerife Holiday or #5000 cash await collection SAE T&Cs Box 326 CW25WX 150 ppm",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.767279000011058,
+   "label": "SPAM",
+   "probability": 0.7365,
+   "risk": "High"
+  },
+  {
+   "text": "No b4 Thursday",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.1458609999740474,
+   "label": "SAFE",
+   "probability": 0.0972,
+   "risk": "Low"
+  },
+  {
+   "text": "goldviking (29/M) is inviting you to be his friend. Reply YES-762 or NO-762 See him: www.SMS.ac/u/goldviking STOP? Send STOP FRND to 62468",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.069345999984762,
+   "label": "SPAM",
+   "probability": 0.7751,
+   "risk": "High"
+  },
+  {
+   "text": "Customer service announcement. We recently tried to make a delivery to you but were unable to do so, please call 07090298926 to re-schedule. Ref:9307622",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.29790899999216,
+   "label": "SPAM",
+   "probability": 0.5019,
+   "risk": "Medium"
+  },
+  {
+   "text": "Eerie Nokia tones 4u, rply TONE TITLE to 8007 eg TONE DRACULA to 8007 Titles: GHOST, ADDAMSFA, MUNSTERS, EXORCIST, TWILIGHT www.getzed.co.uk POBox36504W45WQ 150p",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.3410379999972974,
+   "label": "SPAM",
+   "probability": 0.7425,
+   "risk": "High"
+  },
+  {
+   "text": "Madam,regret disturbance.might receive a reference check from DLF Premarica.kindly be informed.Rgds,Rakhesh,Kerala.",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.00788699999066,
+   "label": "SAFE",
+   "probability": 0.1115,
+   "risk": "Low"
+  },
+  {
+   "text": "Any pain on urination any thing else?",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.211443999954099,
+   "label": "SAFE",
+   "probability": 0.0582,
+   "risk": "Low"
+  },
+  {
+   "text": "No, its true..k,Do u knw dis no. &lt;#&gt; ?",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.1883719999777895,
+   "label": "SAFE",
+   "probability": 0.0332,
+   "risk": "Low"
+  },
+  {
+   "text": "<Forwarded from 88877>FREE entry into our \u00a3250 weekly comp just send the word ENTER to 88877 NOW. 18 T&C www.textcomp.com",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.523055999972712,
+   "label": "SPAM",
+   "probability": 0.671,
+   "risk": "Medium"
+  },
+  {
+   "text": "all the lastest from Stereophonics, Marley, Dizzee Racal, Libertines and The Strokes! Win Nookii games with Flirt!! Click TheMob WAP Bookmark or text WAP to 82468",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.1378449999929217,
+   "label": "SAFE",
+   "probability": 0.4373,
+   "risk": "Medium"
+  },
+  {
+   "text": "SPJanuary Male Sale! Hot Gay chat now cheaper, call 08709222922. National rate from 1.5p/min cheap to 7.8p/min peak! To stop texts call 08712460324 (10p/min)",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.38679200003844,
+   "label": "SPAM",
+   "probability": 0.6081,
+   "risk": "Medium"
+  },
+  {
+   "text": "Someone has contacted our dating service and entered your phone because they fancy you! To find out who it is call from a landline 09111032124 . PoBox12n146tf150p",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.3085850000370556,
+   "label": "SPAM",
+   "probability": 0.6019,
+   "risk": "Medium"
+  },
+  {
+   "text": "I don't quite know what to do. I still can't get hold of anyone. I cud pick you up bout 7.30pm and we can see if they're in the pub?",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.275225000005321,
+   "label": "SAFE",
+   "probability": 0.042,
+   "risk": "Low"
+  },
+  {
+   "text": "Haf u found him? I feel so stupid da v cam was working.",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.2818439999809925,
+   "label": "SAFE",
+   "probability": 0.0494,
+   "risk": "Low"
+  },
+  {
+   "text": "More people are dogging in your area now. Call 09090204448 and join like minded guys. Why not arrange 1 yourself. There's 1 this evening. A\u00a31.50 minAPN LS278BB",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.4540740000134065,
+   "label": "SAFE",
+   "probability": 0.246,
+   "risk": "Low"
+  },
+  {
+   "text": "He neva grumble but i sad lor... Hee... Buy tmr lor aft lunch. But we still meetin 4 lunch tmr a not. Neva hear fr them lei. \u00dc got a lot of work ar?",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.621556999997665,
+   "label": "SAFE",
+   "probability": 0.0249,
+   "risk": "Low"
+  },
+  {
+   "text": "Edison has rightly said, \"A fool can ask more questions than a wise man can answer\" Now you know why all of us are speechless during ViVa.. GM,GN,GE,GNT:-)",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.3723390000327527,
+   "label": "SAFE",
+   "probability": 0.0703,
+   "risk": "Low"
+  },
+  {
+   "text": "Ok . . now i am in bus. . If i come soon i will come otherwise tomorrow",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.012438999997812,
+   "label": "SAFE",
+   "probability": 0.0337,
+   "risk": "Low"
+  },
+  {
+   "text": "You have won a guaranteed \u00a3200 award or even \u00a31000 cashto claim UR award call free on 08000407165 (18+) 2 stop getstop on 88222 PHP. RG21 4JX",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.323795999984668,
+   "label": "SPAM",
+   "probability": 0.669,
+   "risk": "Medium"
+  },
+  {
+   "text": ":-( that's not v romantic!",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.0305169999801365,
+   "label": "SAFE",
+   "probability": 0.0867,
+   "risk": "Low"
+  },
+  {
+   "text": "From next month get upto 50% More Calls 4 Ur standard network charge 2 activate Call 9061100010 C Wire3.net 1st4Terms PoBox84 M26 3UZ Cost \u00a31.50 min MobcudB more",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.1175910000010845,
+   "label": "SPAM",
+   "probability": 0.5736,
+   "risk": "Medium"
+  },
+  {
+   "text": "Sorry, I'll call later",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.1623999999746957,
+   "label": "SAFE",
+   "probability": 0.0395,
+   "risk": "Low"
+  },
+  {
+   "text": "SMS SERVICES For your inclusive text credits pls gotto www.comuk.net login 3qxj9 unsubscribe with STOP no extra charge help 08702840625 comuk.220cm2 9AE",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.669247000028463,
+   "label": "SPAM",
+   "probability": 0.5474,
+   "risk": "Medium"
+  },
+  {
+   "text": "Free 1st week entry 2 TEXTPOD 4 a chance 2 win 40GB iPod or \u00a3250 cash every wk. Txt VPOD to 81303 Ts&Cs www.textpod.net custcare 08712405020.",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.3310090000450145,
+   "label": "SPAM",
+   "probability": 0.7496,
+   "risk": "High"
+  },
+  {
+   "text": "YOU ARE CHOSEN TO RECEIVE A \u00a3350 AWARD! Pls call claim number 09066364311 to collect your award which you are selected to receive as a valued mobile customer.",
+   "truth": "spam",
+   "status": 200,
+   "ms": 1.9927779999875384,
+   "label": "SPAM",
+   "probability": 0.6865,
+   "risk": "Medium"
+  },
+  {
+   "text": "ELLO BABE U OK?",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.3652720000200134,
+   "label": "SAFE",
+   "probability": 0.0251,
+   "risk": "Low"
+  },
+  {
+   "text": "&lt;#&gt; , that's all? Guess that's easy enough",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.295086000003721,
+   "label": "SAFE",
+   "probability": 0.0309,
+   "risk": "Low"
+  },
+  {
+   "text": "Congrats! 2 mobile 3G Videophones R yours. call 09061744553 now! videochat wid ur mates, play java games, Dload polyH music, noline rentl. bx420. ip4. 5we. 150pm",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.1474249999755557,
+   "label": "SPAM",
+   "probability": 0.5662,
+   "risk": "Medium"
+  },
+  {
+   "text": "Did he just say somebody is named tampa",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.14781300002187,
+   "label": "SAFE",
+   "probability": 0.0688,
+   "risk": "Low"
+  },
+  {
+   "text": "Final Chance! Claim ur \u00a3150 worth of discount vouchers today! Text YES to 85023 now! SavaMob, member offers mobile! T Cs SavaMob POBOX84, M263UZ. \u00a33.00 Subs 16",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.4823420000075203,
+   "label": "SPAM",
+   "probability": 0.6861,
+   "risk": "Medium"
+  },
+  {
+   "text": "PRIVATE! Your 2003 Account Statement for shows 800 un-redeemed S. I. M. points. Call 08715203694 Identifier Code: 40533 Expires 31/10/04",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.3978360000000976,
+   "label": "SPAM",
+   "probability": 0.7158,
+   "risk": "High"
+  },
+  {
+   "text": "YOU VE WON! Your 4* Costa Del Sol Holiday or \u00a35000 await collection. Call 09050090044 Now toClaim. SAE, TC s, POBox334, Stockport, SK38xh, Cost\u00a31.50/pm, Max10mins",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.0276849999731894,
+   "label": "SPAM",
+   "probability": 0.6584,
+   "risk": "Medium"
+  },
+  {
+   "text": "Sorry that was my uncle. I.ll keep in touch",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.1998930000108885,
+   "label": "SAFE",
+   "probability": 0.0481,
+   "risk": "Low"
+  },
+  {
+   "text": "You have 1 new voicemail. Please call 08719181513.",
+   "truth": "spam",
+   "status": 200,
+   "ms": 1.918544999966798,
+   "label": "SAFE",
+   "probability": 0.4822,
+   "risk": "Medium"
+  },
+  {
+   "text": "U have a Secret Admirer who is looking 2 make contact with U-find out who they R*reveal who thinks UR so special-call on 09065171142-stopsms-08",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.3822750000022097,
+   "label": "SPAM",
+   "probability": 0.5594,
+   "risk": "Medium"
+  },
+  {
+   "text": "Hows the pain dear?y r u smiling?",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.0430899999723806,
+   "label": "SAFE",
+   "probability": 0.0595,
+   "risk": "Low"
+  },
+  {
+   "text": "You are a \u00a31000 winner or Guaranteed Caller Prize, this is our Final attempt to contact you! To Claim Call 09071517866 Now! 150ppmPOBox10183BhamB64XE",
+   "truth": "spam",
+   "status": 200,
+   "ms": 2.1751229999722455,
+   "label": "SPAM",
+   "probability": 0.8706,
+   "risk": "High"
+  },
+  {
+   "text": "\"Hey sorry I didntgive ya a a bellearlier hunny,just been in bedbut mite go 2 thepub l8tr if uwana mt up?loads a luv Jenxxx.\"",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.4476259999914873,
+   "label": "SAFE",
+   "probability": 0.0451,
+   "risk": "Low"
+  },
+  {
+   "text": "Your account has been refilled successfully by INR  &lt;DECIMAL&gt; . Your KeralaCircle prepaid account balance is Rs  &lt;DECIMAL&gt; . Your Transaction ID is KR &lt;#&gt; .",
+   "truth": "ham",
+   "status": 200,
+   "ms": 2.4895259999766495,
+   "label": "SAFE",
+   "probability": 0.0453,
+   "risk": "Low"
+  }
+ ]
+}
