@@ -1,3 +1,7 @@
+import nltk
+nltk.download('stopwords', quiet=True)
+nltk.download('punkt', quiet=True)
+nltk.download('punkt_tab', quiet=True)
 import json, os, time
 import pandas as pd, numpy as np
 from flask import Flask, request, jsonify, render_template_string
