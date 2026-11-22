@@ -11,6 +11,9 @@ app = Flask(__name__)
 R = json.load(open('results.json'))
 df = pd.read_pickle('df.pkl'); tr = pd.read_pickle('tr.pkl').tolist(); te = pd.read_pickle('te.pkl').tolist()
 
+@app.get('/')
+def home():
+    return render_template_string('<script>location.href="/module4"</script>')
 @app.post('/predict')
 def api_predict():
     msg = (request.get_json(silent=True) or {}).get('message', '')
@@ -182,6 +185,35 @@ def m4():
     cells = ''.join(f'<div style="display:flex;flex-direction:column;align-items:center;gap:9px">{p}<div style="font-size:13px;font-weight:bold">{c}</div></div>' for p, c in phones)
     body = f"""<div style="text-align:center;font-size:12.5px;color:#666;margin:-2px 0 12px">Android app screens &mdash; web preview. Each result is returned live by <code>POST /predict</code>.</div>
 <div style="display:flex;justify-content:center;gap:28px">{cells}</div>"""
+    body += """<script>
+    (() => {
+      const boxes = document.querySelectorAll('div[style*="height:112px"]');
+      const btns = document.querySelectorAll('div[style*="background:#262626"]');
+      if (boxes[0] && btns[0]) {
+        const ta = document.createElement('textarea');
+        ta.placeholder = 'Type your message here...';
+        ta.style.cssText = 'width:100%;height:112px;border:1.5px solid #9c9c9c;border-radius:8px;padding:10px;font-size:12px;resize:none;box-sizing:border-box;font-family:inherit;outline:none;';
+        boxes[0].replaceWith(ta);
+        const out = document.createElement('div');
+        btns[0].insertAdjacentElement('afterend', out);
+        btns[0].style.cursor = 'pointer';
+        btns[0].onclick = async () => {
+          const msg = ta.value.trim();
+          if (!msg) return;
+          btns[0].textContent = 'CHECKING...';
+          const res = await fetch('/predict', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({message: msg})
+          });
+          const d = await res.json();
+          btns[0].textContent = 'CHECK MESSAGE';
+          const c = d.risk === 'High' ? '#c00000' : (d.risk === 'Medium' ? '#e08a00' : '#2e7d32');
+          out.innerHTML = `<div style="border:2px solid ${c};border-radius:11px;padding:10px 11px;background:#fff;margin-top:10px;"><span style="background:${c};color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:11px;">${d.label}</span><div style="font-size:10.5px;color:#777;margin-top:9px;">Spam probability</div><div style="font-size:21px;font-weight:700;color:#222;">${(d.probability*100).toFixed(1)}%</div><div style="font-size:10.5px;color:#777;margin-top:2px;">Risk level</div><div style="font-size:13px;font-weight:700;color:${c};">${d.risk}</div></div>`;
+        };
+      }
+    })();
+    </script>"""
     return page(4, 'Module 4 - Android App', 'Module 4: Android Mobile App', body)
 
 if __name__ == '__main__':
